@@ -7,6 +7,14 @@ local keymap = vim.keymap -- for conciseness
 -- General Keymaps
 ---------------------
 
+-- Delete a word backwards
+keymap.set("n", "dw", 'vb"_d')
+-- Delete words in insert mode
+keymap.set("i", "<C-b>", "<C-o>db")
+
+-- Select all
+keymap.set("n", "<C-a>", "gg<S-v>G")
+
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
@@ -16,20 +24,17 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- delete without storing
+keymap.set("n", "<leader>d", '"_d')
+keymap.set("v", "<leader>d", '"_d')
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
--- move highlighted lines up and down
+-- move hightlighted lines up and down
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
--- delete words in insert mode
-keymap.set("i", "<C-b>", "<C-o>db")
-
--- delete without storing
-keymap.set("n", "<leader>d", '"_d')
-keymap.set("v", "<leader>d", '"_d')
 
 -- format entire file
 keymap.set("n", "<leader>+=", "m1ggVG='1")
@@ -45,10 +50,6 @@ keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
-
--- center position when scrolling
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
 
 ----------------------
 -- Plugin Keybinds
@@ -73,27 +74,5 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git co
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
--- restart lsp server
+-- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
--- harpoon
--- local nnoremap = require("theprimeagen.keymap").nnoremap
--- local silent = { silent = true }
--- nnoremap("<leader>a", function()
---   require("harpoon.mark").add_file()
--- end, silent)
--- nnoremap("<C-e>", function()
---   require("harpoon.ui").toggle_quick_menu()
--- end, silent)
--- nnoremap("<C-h>", function()
---   require("harpoon.ui").nav_file(1)
--- end, silent)
--- nnoremap("<C-t>", function()
---   require("harpoon.ui").nav_file(2)
--- end, silent)
--- nnoremap("<C-n>", function()
---   require("harpoon.ui").nav_file(3)
--- end, silent)
--- nnoremap("<C-s>", function()
---   require("harpoon.ui").nav_file(4)
--- end, silent)

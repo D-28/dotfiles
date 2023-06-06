@@ -31,9 +31,7 @@ return packer.startup(function(use)
   -- packer can manage itself
   use("wbthomason/packer.nvim")
 
-  -- Debugging
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
-  use("mfussenegger/nvim-dap")
 
   use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 
@@ -81,9 +79,7 @@ return packer.startup(function(use)
   use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
   use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
   use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
-
-  -- Adds extra functionality over rust analyzer
-  use("simrat39/rust-tools.nvim")
+  use({ "github/copilot.vim" }) -- github copilot
 
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
@@ -104,9 +100,6 @@ return packer.startup(function(use)
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-
-  -- primeagen harpoon
-  use("ThePrimeagen/harpoon")
 
   if packer_bootstrap then
     require("packer").sync()
