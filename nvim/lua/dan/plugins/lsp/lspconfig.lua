@@ -109,3 +109,22 @@ lspconfig["lua_ls"].setup({
     },
   },
 })
+
+-- configure golang server
+-- lspconfig["gopls"].setup({
+--   settings = {
+--     gopls = {
+--       analyses = {
+--         unusedparams = true,
+--       },
+--       staticcheck = true,
+--       gofumpt = true,
+--     },
+--   },
+-- })
+
+-- configure python server
+-- lspconfig["python"].setup({
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })

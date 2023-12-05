@@ -100,51 +100,29 @@ source $ZSH/oh-my-zsh.sh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias bf="cd ~/repos/voltagrid && pnpm run start:sst"
+alias bb="sh ~/startup.sh"
+alias awsume=". awsume"
+alias cv="cd ~/repos/voltagrid"
+alias nvim-swap-clean='rm /Users/dan/.local/state/nvim/swap/*'
+alias rmrfnode="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+alias pnpm-all="pnpm install && pnpm turbo build && pnpm -C web start"
+alias gitreset='git reset --hard HEAD && git clean -fd'
 
-# PATH
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# PHP - Composer
-export PHPPATH=$HOME/.composer/vendor/bin
-
-# ansible
-export PYPATH=$HOME/Library/Python/3.10/bin
-
-export PATH=$PATH:$PHPPATH:$PYPATH
-
-# Aliases
-alias path='echo -e ${PATH//:/\\n}'
-alias mkdir='mkdir -pv'
-alias sourcez='source ~/.zshrc'
-alias codez='code ~/.zshrc'
-alias cwd='echo -n $PWD | pbcopy | echo "Copied to clipboard:  $PWD"'
-alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-alias tree="tree -C | less"
-alias ports="sudo lsof -PiTCP -sTCP:LISTEN"
-alias l="ls -alF"
-alias nrd="npm run dev"
-
-# Git (see oh-my-zsh for standard git alias)
-alias gpoh="git push origin head"
-alias gml="gco main && gl;"
-alias gref="gco main && gl && gco - && git merge main;"
-
-# NVM (Node)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-
-source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# If you come from bash you might have to change your $PATH.
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias vim="nvim"
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# Created by `pipx` on 2023-01-31 19:56:51
+export PATH="$PATH:/Users/dan/.local/bin"
+
