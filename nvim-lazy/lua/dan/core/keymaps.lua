@@ -12,6 +12,9 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
+-- yank everything
+keymap.set("n", "<C-y>", 'gg"*yG', { desc = "Yank all lines" })
+
 -- delete single character without copying into register
 -- keymap.set("n", "x", '"_x')
 
