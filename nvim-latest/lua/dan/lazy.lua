@@ -12,20 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  {import = "dan.plugins"},
-  {import = "dan.plugins.lsp"},
+  { import = "dan.plugins" },
+  { import = "dan.plugins.lsp" },
 }, {
-  install = {
-    colorscheme = { "nightfly" },
-  },
   checker = {
     enabled = true,
     notify = false,
   },
-  {
-    change_detection = {
-      notify = false,
-    }
-  }
+  change_detection = {
+    notify = false,
+  },
 })
-

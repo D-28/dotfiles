@@ -1,6 +1,5 @@
 return {
   "mfussenegger/nvim-lint",
-  lazy = true,
   event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
   config = function()
     local lint = require("lint")
@@ -10,8 +9,8 @@ return {
       typescript = { "eslint_d" },
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
-      svelte = { "eslint_d" },
       python = { "pylint" },
+      go = { "golangcilint" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -20,19 +19,6 @@ return {
       group = lint_augroup,
       callback = function()
         lint.try_lint()
-      end,
-    })
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*.ts",
-      callback = function()
-        vim.lsp.buf.code_action({
-          apply = true,
-          context = {
-            only = { "source.addMissingImports.ts", "source.removeUnused.ts" },
-            diagnostics = {},
-          },
-        })
       end,
     })
 
